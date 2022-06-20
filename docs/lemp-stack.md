@@ -3,12 +3,12 @@ The LEMP software stack is a group of software that can be used to serve dynamic
 
 This guide demonstrates how to install a LEMP stack on an Ubuntu 18.04 server. The Ubuntu operating system takes care of the first requirement. We will describe how to get the rest of the components up and running.
 
-## Prerequisites
+### Prerequisites
 Before you complete this tutorial, you should have a regular, non-root user account on your server with `sudo` privileges. Set up this account by completing our [initial server setup guide for Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04).
 
 Once you have your user available, you are ready to begin the steps outlined in this guide.
 
-## Step 1 – Installing the Nginx Web Server
+### Step 1 – Installing the Nginx Web Server
 In order to display web pages for your site visitors, you’re going to employ Nginx, a modern, efficient web server.
 
 All of the software used in this procedure will come from Ubuntu’s default package repositories. This means you’ll use the apt package management suite to complete the necessary installations.
@@ -66,7 +66,7 @@ Type the address that you receive in your web browser and it will take you to Ng
 [](https://assets.digitalocean.com/articles/lemp_ubuntu_1604/nginx_default.png)
 > If you received a web page that states ”Welcome to nginx” then you have successfully installed Nginx.
 
-## Step 2 – Installing MySQL to Manage Site Data
+### Step 2 – Installing MySQL to Manage Site Data
 
 Now that you have a web server, you need to install MySQL (a database management system) to store and manage the data for your site.
 
@@ -168,7 +168,7 @@ This example output shows that the root MySQL user now authenticates using a pas
 
 At this point, your database system is now set up and you can move on to installing PHP.
 
-## Step 3 – Installing PHP and Configuring Nginx to Use the PHP Processor
+### Step 3 – Installing PHP and Configuring Nginx to Use the PHP Processor
 
 Nginx is now installed to serve your pages and MySQL is installed to store and manage your data. However, you still don’t have anything that can generate dynamic content. This is where PHP comes into play.
 
@@ -243,7 +243,7 @@ When you are ready, reload Nginx to make the necessary changes:
 
 This concludes the installation and configuration of your LEMP stack. However, it’s prudent to confirm that all of the components can communicate with one another.
 
-## Step 4 – Creating a PHP File to Test Configuration
+### Step 4 – Creating a PHP File to Test Configuration
 
 Your LEMP stack should now be completely set up. You can test it to validate that Nginx can correctly hand .php files off to the PHP processor.
 
@@ -276,7 +276,7 @@ For now, remove the file:
 
 With that, you have a fully configured and functioning LEMP stack on your Ubuntu 18.04 server.
 
-## Conclusion
+### Conclusion
 
 A LEMP stack is a powerful platform that will allow you to set up and serve nearly any website or application from your server.
 
