@@ -20,7 +20,7 @@ If our remote machine was not on the same system as our workstation and was in a
 
 SSH provides a secure tunnel between client and server so that nothing can be intercepted by bad actors. 
 
-![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux1.png)
+![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux1.png)
 
 The server has a server-side SSH service always running and listening on a specific TCP port (22). 
 
@@ -32,7 +32,7 @@ For us to use this with our current virtual box VM, we need to add a bridged net
 
 Power down your virtual machine, right-click on your machine within Virtual Box and select settings. In the new window then select networking. 
 
-![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux2.png)
+![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux2.png)
 
 Now power your machine back on and you will now have an IP address on your local machine. You can confirm this with the `IP addr` command. 
 
@@ -42,7 +42,7 @@ We know SSH is already configured on our machine as we have been using it with v
 
 `sudo systemctl status ssh`
 
-![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux3.png)
+![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux3.png)
 
 If your system does not have the SSH server then you can install it by issuing this command `sudo apt install OpenSSH-server` 
 
@@ -52,15 +52,15 @@ You then want to make sure that our SSH is allowed if the firewall is running. W
 
 Now that we have our SSH Server listening out on port 22 for any incoming connection requests and we have added the bridged networking we could use putty or an SSH client on our local machine to connect to our system using SSH. 
 
-![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux4.png)
+![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux4.png)
 
 Then hit open, if this is the first time you have connected to this system via this IP address you will get this warning. We know that this is our system so you can choose yes. 
 
-![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux5.png)
+![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux5.png)
 
 We are then prompted for our username (vagrant) and password (default password - vagrant) Below you will see we are now using our SSH client (Putty) to connect to our machine using username and password. 
 
-![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux6.png)
+![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux6.png)
 
 At this stage, we are connected to our VM from our remote client and we can issue our commands on our system. 
 
@@ -76,7 +76,7 @@ Creating a key is easy. On our local machine (Windows) We can issue the followin
 
 I am not going to get into what `ed25519` is and means here but you can have a search if you want to learn more about [cryptography](https://en.wikipedia.org/wiki/EdDSA#Ed25519) 
 
-![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux7.png)
+![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux7.png)
 
 At this point, we have our created SSH key stored in `C:\Users\micha/.ssh/`
 
@@ -84,13 +84,13 @@ But to link this with our Linux VM we need to copy the key. We can do this by us
 
 I used Powershell to create my keys on my Windows client but there is no `ssh-copy-id` available here. There are ways in which you can do this on Windows and a small search online will find you an alternative, but I will just use git bash on my Windows machine to make the copy. 
 
-![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux8.png)
+![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux8.png)
 
 We can now go back to Powershell to test that our connection now works with our SSH Keys and no password is required. 
 
 `ssh vagrant@192.168.169.135`
 
-![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux9.png)
+![](https://github.com/MichaelCade/90DaysOfDevOps/raw/main/Days/Images/Day18_Linux9.png)
 
 We could secure this further if needed by using a passphrase. We could also go one step further saying that no passwords at all meaning only key pairs over SSH would be allowed. You can make this happen in the following configuration file. 
 
