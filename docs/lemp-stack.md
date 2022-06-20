@@ -160,3 +160,88 @@ Check the authentication methods employed by each of your users again to confirm
 This example output shows that the root MySQL user now authenticates using a password. Once you confirm this on your own server, you can exit the MySQL shell:
 
 `exit`
+
+> Note: After configuring your root MySQL user to authenticate with a password, you’ll no longer be able to access MySQL with the sudo mysql command used previously. Instead, you must run the following:
+> 
+> `mysql -u root -p`
+> After entering the password you set, you will receive the MySQL prompt.
+
+At this point, your database system is now set up and you can move on to installing PHP.
+
+## Step 3 – Installing PHP and Configuring Nginx to Use the PHP Processor
+
+Nginx is now installed to serve your pages and MySQL is installed to store and manage your data. However, you still don’t have anything that can generate dynamic content. This is where PHP comes into play.
+
+Since Nginx does not contain native PHP processing like some other web servers, you will need to install php-fpm, which stands for “fastCGI process manager”. After, you’ll tell Nginx to pass PHP requests to this software for processing.
+
+> Note: Depending on your cloud provider, you may need to add Ubuntu’s universe repository, which includes free and open-source software maintained by the Ubuntu community, before installing the php-fpm package. You can do this by typing > the following command:
+> 
+> `sudo add-apt-repository universe`
+
+Install the php-fpm module along with an additional helper package, php-mysql, which will allow PHP to communicate with your database backend. The installation will pull in the necessary PHP core files. Do this by typing the following:
+
+`sudo apt install php-fpm php-mysql`
+
+Even with all of the required LEMP stack components installed, you still need to make a few configuration changes in order to tell Nginx to use the PHP processor for dynamic content.
+
+This is done on the server block level (server blocks are similar to Apache’s virtual hosts). To do this, create a new server block configuration file using your preferred text editor within the /etc/nginx/sites-available/ directory. In this example, we will be using nano and the new server block configuration file will say your_domain, so you can replace it with your own information:
+
+`sudo nano /etc/nginx/sites-available/your_domain`
+
+By creating a new server block configuration file, rather than editing the default one, you’ll be able to restore the default configuration if you ever need to.
+
+Add the following content, which was taken and slightly modified from the default server block configuration file, to your new server block configuration file:
+
+>server {
+>        listen 80;
+>        root /var/www/html;
+>        index index.php index.html index.htm index.nginx-debian.html;
+>        server_name your_domain;
+>
+>        location / {
+>                try_files $uri $uri/ =404;
+>        }
+>
+>        location ~ \.php$ {
+>                include snippets/fastcgi-php.conf;
+>                fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+>        }
+>
+>        location ~ /\.ht {
+>                deny all;
+>        }
+>}
+
+Here’s what each directives and location blocks does:
+
+    * listen — Defines what port Nginx will listen on. In this case, it will listen on port 80, the default port for HTTP.
+    * root — Defines the document root where the files served by the website are stored.
+    * index — Configures Nginx to prioritize serving files named index.php when an index file is requested if they’re available.
+    * server_name — Defines which server block should be used for a given request to your server. Point this directive to your server’s domain name or public IP address.
+    * location / — The first location block includes a try_files directive, which checks for the existence of files matching a URI request. If Nginx cannot find the appropriate file, it will return a 404 error.
+    * location ~ \.php$ — This location block handles the actual PHP processing by pointing Nginx to the fastcgi-php.conf configuration file and the php7.2-fpm.sock file, which declares what socket is associated with php-fpm.
+    * location ~ /\.ht — The last location block deals with .htaccess files, which Nginx does not process. By adding the deny all directive, if any .htaccess files happen to find their way into the document root they will not be served to visitors.
+
+After adding this content, save and close the file. If you’re using nano, you can do this by pressing CTRL + X then Y and ENTER. Enable your new server block by creating a symbolic link from your new server block configuration file (in the /etc/nginx/sites-available/ directory) to the /etc/nginx/sites-enabled/ directory:
+
+`sudo ln -s /etc/nginx/sites-available/your_domain /etc/nginx/sites-enabled/`
+
+Then, unlink the default configuration file from the /sites-enabled/ directory:
+
+`sudo unlink /etc/nginx/sites-enabled/default`
+
+>Note: If you ever need to restore the default configuration, you can do so by recreating the symbolic link using a command like the following:
+>
+>`sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/`
+
+Test your new configuration file for syntax errors:
+
+`sudo nginx -t`
+
+If any errors are reported, go back and recheck your file before continuing.
+
+When you are ready, reload Nginx to make the necessary changes:
+
+`sudo systemctl reload nginx`
+
+This concludes the installation and configuration of your LEMP stack. However, it’s prudent to confirm that all of the components can communicate with one another.
