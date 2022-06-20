@@ -214,13 +214,13 @@ Add the following content, which was taken and slightly modified from the defaul
 
 Here’s what each directives and location blocks does:
 
-    * listen — Defines what port Nginx will listen on. In this case, it will listen on port 80, the default port for HTTP.
-    * root — Defines the document root where the files served by the website are stored.
-    * index — Configures Nginx to prioritize serving files named index.php when an index file is requested if they’re available.
-    * server_name — Defines which server block should be used for a given request to your server. Point this directive to your server’s domain name or public IP address.
-    * location / — The first location block includes a try_files directive, which checks for the existence of files matching a URI request. If Nginx cannot find the appropriate file, it will return a 404 error.
-    * location ~ \.php$ — This location block handles the actual PHP processing by pointing Nginx to the fastcgi-php.conf configuration file and the php7.2-fpm.sock file, which declares what socket is associated with php-fpm.
-    * location ~ /\.ht — The last location block deals with .htaccess files, which Nginx does not process. By adding the deny all directive, if any .htaccess files happen to find their way into the document root they will not be served to visitors.
+* listen — Defines what port Nginx will listen on. In this case, it will listen on port 80, the default port for HTTP.
+* root — Defines the document root where the files served by the website are stored.
+* index — Configures Nginx to prioritize serving files named index.php when an index file is requested if they’re available.
+* server_name — Defines which server block should be used for a given request to your server. Point this directive to your server’s domain name or public IP address.
+* location / — The first location block includes a try_files directive, which checks for the existence of files matching a URI request. If Nginx cannot find the appropriate file, it will return a 404 error.
+* location ~ \.php$ — This location block handles the actual PHP processing by pointing Nginx to the fastcgi-php.conf configuration file and the php7.2-fpm.sock file, which declares what socket is associated with php-fpm.
+* location ~ /\.ht — The last location block deals with .htaccess files, which Nginx does not process. By adding the deny all directive, if any .htaccess files happen to find their way into the document root they will not be served to visitors.
 
 After adding this content, save and close the file. If you’re using nano, you can do this by pressing CTRL + X then Y and ENTER. Enable your new server block by creating a symbolic link from your new server block configuration file (in the /etc/nginx/sites-available/ directory) to the /etc/nginx/sites-enabled/ directory:
 
