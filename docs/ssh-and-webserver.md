@@ -1,4 +1,4 @@
-## SSH & Web Server
+##  SSH AND WEB SERVER
 
 As we have mentioned throughout you are going to most likely be managing lots of remote Linux servers, because of this, you will need to make sure that your connectivity to these remote servers is secure. In this section, we want to cover some of the basics of SSH that everyone should know that will help you with that secure tunnel to your remote systems. 
 
