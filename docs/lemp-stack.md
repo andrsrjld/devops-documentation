@@ -124,14 +124,14 @@ Next, check which authentication method each of your MySQL user accounts uses wi
 `SELECT user,authentication_string,plugin,host FROM mysql.user;`
 
 > Output
-> +------------------+-------------------------------------------+-----------------------+-----------+
+> 
 > | user             | authentication_string                     | plugin                | host      |
-> +------------------+-------------------------------------------+-----------------------+-----------+
+> 
 > | root             |                                           | auth_socket           | localhost |
 > | mysql.session    | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE | mysql_native_password | localhost |
 > | mysql.sys        | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE | mysql_native_password | localhost |
 > | debian-sys-maint | *CC744277A401A7D25BE1CA89AFF17BF607F876FF | mysql_native_password | localhost |
-> +------------------+-------------------------------------------+-----------------------+-----------+
+> 
 > 4 rows in set (0.00 sec)
 
 This example demonstrates that the root user does in fact authenticate using the `auth_socket` plugin. To configure the root account to authenticate with a password, run the following `ALTER USER` command. Be sure to change password to a strong password of your choosing:
@@ -147,14 +147,14 @@ Check the authentication methods employed by each of your users again to confirm
 `SELECT user,authentication_string,plugin,host FROM mysql.user;`
 
 > Output
-> +------------------+-------------------------------------------+-----------------------+-----------+
+> 
 > | user             | authentication_string                     | plugin                | host      |
-> +------------------+-------------------------------------------+-----------------------+-----------+
+> 
 > | root             | *3636DACC8616D997782ADD0839F92C1571D6D78F | mysql_native_password | localhost |
 > | mysql.session    | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE | mysql_native_password | localhost |
 > | mysql.sys        | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE | mysql_native_password | localhost |
 > | debian-sys-maint | *CC744277A401A7D25BE1CA89AFF17BF607F876FF | mysql_native_password | localhost |
-> +------------------+-------------------------------------------+-----------------------+-----------+
+> 
 > 4 rows in set (0.00 sec)
 
 This example output shows that the root MySQL user now authenticates using a password. Once you confirm this on your own server, you can exit the MySQL shell:
