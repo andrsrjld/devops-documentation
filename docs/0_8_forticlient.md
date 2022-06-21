@@ -19,12 +19,12 @@ To configure an SSL VPN connection:
 
 2. Select SSL-VPN, then configure the following settings:
 
-> Connection Name     SSLVPNtoHQ
-> Description         (Optional)
-> Remote Gateway      172.20.120.123
-> Customize port      10443
-> Client Certificate  Select Prompt on connect or the certificate from the dropdown list.
-> Authentication      Select Prompt on login for a prompt on the connection screen
+    Connection Name     SSLVPNtoHQ
+    Description         (Optional)
+    Remote Gateway      172.20.120.123
+    Customize port      10443
+    Client Certificate  Select Prompt on connect or the certificate from the dropdown list.
+    Authentication      Select Prompt on login for a prompt on the connection screen
 
 3. Click Save to save the VPN connection.
 
@@ -51,7 +51,7 @@ To check the tunnel log in using the CLI:
     SSL VPN Login Users:
      Index   User          Auth Type    Timeout   From           HTTP in/out  HTTPS in/out
      0       sslvpnuser1   1(1)         291       10.1.100.254   0/0          0/0
-    
+
     SSL VPN sessions:
      Index   User          Source IP      Duration   I/O Bytes      Tunnel/Dest IP 
      0       sslvpnuser1   10.1.100.254   9          22099/43228    10.212.134.200
