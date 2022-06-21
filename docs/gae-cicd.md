@@ -3,7 +3,6 @@ Automate the boring task 😁 of deployment
 
 ![](https://miro.medium.com/max/1400/1*Y9Pav9mnsRsDV6COhtsw6Q.png)
 
-gitlab ci + appengine
 All we have to do is:
 
 1. Create a service account (I assume you know about it)
