@@ -5,3 +5,4 @@ This repository is used to documentation for internal DevOps project. The reason
 - [✔️] ♾️ 2 > [SSH and Webserver](docs/ssh-and-webserver.md)
 - [✔️] ♾️ 3 > [NGINX Subdirectory Example](docs/nginx-subdirectory.md)
 - [✔️] ♾️ 4 > [LEMP Stack](docs/lemp-stack.md)
+- [✔️] ♾️ 5 > [GAE with Gitlab CI](docs/gae-cicd.md)
