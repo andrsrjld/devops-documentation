@@ -1,7 +1,7 @@
 ## Automatically deploy to Google App Engine with Gitlab CI
 Automate the boring task 😁 of deployment
 
-[](https://miro.medium.com/max/1400/1*Y9Pav9mnsRsDV6COhtsw6Q.png)
+![](https://miro.medium.com/max/1400/1*Y9Pav9mnsRsDV6COhtsw6Q.png)
 
 gitlab ci + appengine
 All we have to do is:
@@ -13,14 +13,14 @@ All we have to do is:
 ## Creating a service account
 Visit [iam-admin](https://console.cloud.google.com/iam-admin/serviceaccounts/create) page and create the service account with required permissions and create the key.
 
-[](https://miro.medium.com/max/1086/1*l-uPDkJ1CDb7-G0B5kkV3Q.png)
+![](https://miro.medium.com/max/1086/1*l-uPDkJ1CDb7-G0B5kkV3Q.png)
 
 1. App Engine Admin (This is required only if your using dispatch.yaml)
 2. App Engine Deployer and App Engine Service Account (Ignore this both,if you have given 1st permission)
 3. Grant `Service Account User` permission to CI/CD service account
 4. Create the JSON key (You will need this in Gitlab configuration)
 
-[](https://miro.medium.com/max/1150/1*QhlN9WfRMIAF_h0kGkSNCA.png)
+![](https://miro.medium.com/max/1150/1*QhlN9WfRMIAF_h0kGkSNCA.png)
 
 Now visit [storage](https://console.cloud.google.com/storage/browser) and go to buckets:
 
@@ -29,7 +29,7 @@ Now visit [storage](https://console.cloud.google.com/storage/browser) and go to 
 
 Now add your service account as a member of this buckets and give permissions Storage Object Creator and Storage Object Viewer.
 
-[](https://miro.medium.com/max/1400/1*E02Xr_7tnbt1Jxdro9Mo-Q.png)
+![](https://miro.medium.com/max/1400/1*E02Xr_7tnbt1Jxdro9Mo-Q.png)
 
 One final step in Google Cloud Developer console.
 
@@ -41,7 +41,7 @@ We will deploy master branch to production and staging branch to staging.
 
 Visit CI/CD settings of your gitlab project.
 
-[](https://miro.medium.com/max/1400/1*4c_fcTpfarDB1On_5lAFIQ.png)
+![](https://miro.medium.com/max/1400/1*4c_fcTpfarDB1On_5lAFIQ.png)
 
 Let’s add two variable **PROJECT_ID** and **SERVICE_ACCOUNT**
 
