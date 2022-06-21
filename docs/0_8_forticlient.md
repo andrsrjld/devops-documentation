@@ -47,11 +47,11 @@ To check the SSL VPN connection using the GUI:
 
 To check the tunnel log in using the CLI:
 
-> get vpn ssl monitor
-> SSL VPN Login Users:
->  Index   User          Auth Type    Timeout   From           HTTP in/out  HTTPS in/out
->  0       sslvpnuser1   1(1)         291       10.1.100.254   0/0          0/0
-> 
-> SSL VPN sessions:
->  Index   User          Source IP      Duration   I/O Bytes      Tunnel/Dest IP 
->  0       sslvpnuser1   10.1.100.254   9          22099/43228    10.212.134.200
+    get vpn ssl monitor
+    SSL VPN Login Users:
+     Index   User          Auth Type    Timeout   From           HTTP in/out  HTTPS in/out
+     0       sslvpnuser1   1(1)         291       10.1.100.254   0/0          0/0
+    
+    SSL VPN sessions:
+     Index   User          Source IP      Duration   I/O Bytes      Tunnel/Dest IP 
+     0       sslvpnuser1   10.1.100.254   9          22099/43228    10.212.134.200
