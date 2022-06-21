@@ -10,3 +10,4 @@ This repository is used to documentation for internal DevOps project. The reason
 - [✔️] 👨‍💻 5 > [GAE with Gitlab CI](docs/0_5_gae-cicd.md)
 - [✔️] 👨‍💻 6 > [Cloud Run with Gitlab CI](docs/0_6_cloud-run-cicd.md)
 - [✔️] 👨‍💻 7 > [GitLab CI Pipeline. Run Script via SSH to Remote Server](docs/0_7_ssh-from-cicd.md)
+- [✔️] 👨‍💻 8 > [Forticlient VPN](docs/0_8_forticlient.md)
