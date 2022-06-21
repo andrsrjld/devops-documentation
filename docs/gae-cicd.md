@@ -152,4 +152,4 @@ In case if you want to see staging-app.yaml and dispatch.yaml file.
 Magic 🎩
 Now, git push automatically deploys your code to staging and production.
 
-[](https://miro.medium.com/max/1000/1*JnXiTdCOAdsSO7V84rH2Zg.gif)
+![](https://miro.medium.com/max/1000/1*JnXiTdCOAdsSO7V84rH2Zg.gif)
