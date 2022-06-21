@@ -20,10 +20,15 @@ To configure an SSL VPN connection:
 2. Select SSL-VPN, then configure the following settings:
 
     Connection Name     SSLVPNtoHQ
+
     Description         (Optional)
+
     Remote Gateway      172.20.120.123
+
     Customize port      10443
+
     Client Certificate  Select Prompt on connect or the certificate from the dropdown list.
+
     Authentication      Select Prompt on login for a prompt on the connection screen
 
 3. Click Save to save the VPN connection.
