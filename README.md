@@ -8,3 +8,4 @@ This repository is used to documentation for internal DevOps project. The reason
 - [✔️] 👨‍💻 3 > [NGINX Subdirectory Example](docs/nginx-subdirectory.md)
 - [✔️] 👨‍💻 4 > [LEMP Stack](docs/lemp-stack.md)
 - [✔️] 👨‍💻 5 > [GAE with Gitlab CI](docs/gae-cicd.md)
+- [✔️] 👨‍💻 6 > [Cloud Run with Gitlab CI](docs/cloud-run-cicd.md)

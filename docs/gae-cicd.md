@@ -1,5 +1,4 @@
-## Automatically deploy to Google App Engine with Gitlab CI
-Automate the boring task 😁 of deployment
+## DEPLOY GOOGLE APP ENGINE USING GITLAB CI
 
 ![](https://miro.medium.com/max/1400/1*Y9Pav9mnsRsDV6COhtsw6Q.png)
 
