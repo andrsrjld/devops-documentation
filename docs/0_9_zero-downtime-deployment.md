@@ -17,16 +17,16 @@ Pertama, siapkan Docker Swarm sesuai dengan tutorial dokumentasi [Create a swarm
 
     services:
       web:
-        image: kaenova/ci-cd-playground:latest
+        image: gcr.io/bpp-rts-prod/agent-app-api:Production
         ports:
-          - "2001:2000"
+          - "8080:8080"
         networks:
-          - web-net
+          - agent-app-api
         deploy:
-          replicas: 2
+          replicas: 4
 
     networks:
-      web-net:
+      agent-app-api:
         driver: overlay
 
 File docker-compose.yaml yang dibuat memberitahu Docker untuk membuat "service" yang dinamakan web, diambil dari image kaenova/ci-cd-playground:latest. Melakukan port forwarding dari host 2001 ke container 2000 yang aritnya kita akan masuk ke dalam aplikasi melalui port 2001 dan akan diarahkan oleh docker ke port 2000. Dan membuat 2 container dari serivce yang dibuat.
