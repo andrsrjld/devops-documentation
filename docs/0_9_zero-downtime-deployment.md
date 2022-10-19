@@ -1,4 +1,4 @@
-## Zero Downtime Docker Container (*with Docker Swarm)
+# Zero Downtime Docker Container (*with Docker Swarm)
 
 Pertanyaan. Bagaimana bisa kita melakukan update terhadap Docker Container yang kita jalankan  tidak akan mematikan container yang sedang berjalan untuk melakukan update versi aplikasi yang dijalankan di container tersebut?
 
