@@ -66,7 +66,7 @@ Tapi jangan lupa bahwa kita masih harus menyiapkan Docker Swarm dan file Docker 
         - Production
       script:
         - echo $GCLOUD_SERVICE_KEY_PROD > $CI_PROJECT_DIR/service_account_key.json
-        - export GOOGLE_APPLICATION_CREDENTIALS=$CI_PROJECT_DIR/service_account_key.    json
+        - export GOOGLE_APPLICATION_CREDENTIALS=$CI_PROJECT_DIR/service_account_key.json
         - >-
           /kaniko/executor
           --context=$CI_PROJECT_DIR
@@ -87,5 +87,5 @@ Tapi jangan lupa bahwa kita masih harus menyiapkan Docker Swarm dan file Docker 
         - cat /etc/hosts
         - netstat -tulpn
       script:
-        - sshpass -p $SERVER_PASS_PROD ssh -tt -oStrictHostKeyChecking=no   $SSH_USER@$SERVER_IP_PROD 'docker pull gcr.io/bpp-rts-prod/   agent-app-api:Production'
-        - sshpass -p $SERVER_PASS_PROD ssh -tt -oStrictHostKeyChecking=no   $SSH_USER@$SERVER_IP_PROD 'cd /home/rts_admin/zero-downtime && docker     service update --force agent-app-api_app'
+        - sshpass -p $SERVER_PASS_PROD ssh -tt -oStrictHostKeyChecking=no $SSH_USER@$SERVER_IP_PROD 'docker pull gcr.io/bpp-rts-prod/agent-app-api:Production'
+        - sshpass -p $SERVER_PASS_PROD ssh -tt -oStrictHostKeyChecking=no $SSH_USER@$SERVER_IP_PROD 'cd /home/rts_admin/zero-downtime && docker service update --force agent-app-api_app'
